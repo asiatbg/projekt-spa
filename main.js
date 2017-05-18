@@ -1,20 +1,47 @@
+var img;
+function setImage(img){
+    this.img = img;
+}
+function addImage() {
+    return img;
+}
+function startLoad() {
+        
+    var url = "http://crossorigin.me/";
+    var url1 = $("#imgUrl").val();
+    setImage(url + url1);
+}
 
-$(function() {
+$(document).ready(function () {
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
-
+    
   /* Enable Cross Origin Image Editing */
-  var img = new Image();
+    var img = document.images[0];
+    var downloadingImage = new Image();
+    
+    
+    downloadingImage.onload = function(src){
+        img.src = src;  
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+    };
+    
+    
+        function startLoad() {
+        
+            var url = "http://crossorigin.me/";
+            var url1 = $("#imgUrl").val();
+            downloadingImage.onload(addImage());
+    
+        }
+        downloadingImage.onload(addImage());
+        
 
-  img.crossOrigin = '';
-  img.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/koala.jpg';
 
-  img.onload = function() {
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-  }
-
+  
+    
     var $reset = $('#resetbtn');
     var $brightness = $('#brightnessbtn');
     var $noise = $('#noisebtn');

@@ -2,18 +2,20 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/camanjs/4.0.0/caman.full.min.js"></script>
     <link href = "main.css" type="text/css" rel="stylesheet">
     <script src="main.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    
     <title>Editpix</title>
 </head>
 <body>
 
     <input type="url" id="imgUrl" placeholder="Paste any link">      
-    <button onclick="addImage()">Wprowadź obraz</button>
+    <button onclick="startLoad()">Wprowadź obraz</button>
 
     
-    <div><img src="https://static.pexels.com/photos/46710/pexels-photo-46710.jpeg" id="imageContainer"></div>
+    <div><img src="" id="imageContainer"></div>
     
 <div class="col-lg-6">
   <canvas id="canvas"></canvas>
