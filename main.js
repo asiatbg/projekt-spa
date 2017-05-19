@@ -1,3 +1,4 @@
+
 var img;
 function setImage(img){
     this.img = img;
@@ -7,75 +8,72 @@ function addImage() {
 }
 function startLoad() {
         
-    var url = "http://crossorigin.me/";
     var url1 = $("#imgUrl").val();
-    setImage(url + url1);
-}
+    setImage(url1);
+    console.log(url1);
+    var img = new Image();
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+      img.crossOrigin = '';
+      try {
+          img.src = addImage();
 
-$(document).ready(function () {
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
-    
-  /* Enable Cross Origin Image Editing */
-    var img = document.images[0];
-    var downloadingImage = new Image();
-    
-    
-    downloadingImage.onload = function(src){
-        img.src = src;  
+
+    } catch (e) {
+        alert("Cross-domain access blocked.");
+    }
+          
+
+
+      img.onload = function() {
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0, img.width, img.height);
-    };
-    
-    
-        function startLoad() {
-        
-            var url = "http://crossorigin.me/";
-            var url1 = $("#imgUrl").val();
-            downloadingImage.onload(addImage());
-    
         }
-        downloadingImage.onload(addImage());
-        
+    }
+
+$(document).ready(function () {
+
+  var $reset = $('#resetbtn');
+  var $brightness = $('#brightnessbtn');
+  var $noise = $('#noisebtn');
+  var $sepia = $('#sepiabtn');
+  var $contrast = $('#contrastbtn');
+  var $color = $('#colorbtn');
+
+  var $vintage = $('#vintagebtn');
+  var $lomo = $('#lomobtn');
+  var $emboss = $('#embossbtn');
+  var $tiltshift = $('#tiltshiftbtn');
+  var $radialblur = $('#radialblurbtn');
+  var $edgeenhance = $('#edgeenhancebtn');
+
+  var $posterize = $('#posterizebtn');
+  var $clarity = $('#claritybtn');
+  var $orangepeel = $('#orangepeelbtn');
+  var $sincity = $('#sincitybtn');
+  var $sunrise = $('#sunrisebtn');
+  var $crossprocess = $('#crossprocessbtn');
+
+  var $hazydays = $('#hazydaysbtn');
+  var $love = $('#lovebtn');
+  var $grungy = $('#grungybtn');
+  var $jarques = $('#jarquesbtn');
+  var $pinhole = $('#pinholebtn');
+  var $oldboot = $('#oldbootbtn');
+  var $glowingsun = $('#glowingsunbtn');
+
+  var $hdr = $('#hdrbtn');
+  var $oldpaper = $('#oldpaperbtn');
+  var $pleasant = $('#pleasantbtn');
+
+  var $save = $('#savebtn');
+
+  /* As soon as slider value changes call applyFilters */
+  $("input[type=range]").change(applyFilters).mousemove(applyFilters);
 
 
-  
-    
-    var $reset = $('#resetbtn');
-    var $brightness = $('#brightnessbtn');
-    var $noise = $('#noisebtn');
-    var $sepia = $('#sepiabtn');
-    var $contrast = $('#contrastbtn');
-    var $color = $('#colorbtn');
-    var $vintage = $('#vintagebtn');
-    var $lomo = $('#lomobtn');
-    var $emboss = $('#embossbtn');
-    var $tiltshift = $('#tiltshiftbtn');
-    var $radialblur = $('#radialblurbtn');
-    var $edgeenhance = $('#edgeenhanceb');
-    var $posterize = $('#posterizebtn');
-    var $clarity = $('#claritybtn');
-    var $orangepeel = $('#orangepeelbtn');
-    var $sincity = $('#sincitybtn');
-    var $sunrise = $('#sunrisebtn');
-    var $crossprocess = $('#crossprocessb');
-    var $hazydays = $('#hazydaysbtn');
-    var $love = $('#lovebtn');
-    var $grungy = $('#grungybtn');
-    var $jarques = $('#jarquesbtn');
-    var $pinhole = $('#pinholebtn');
-    var $oldboot = $('#oldbootbtn');
-    var $glowingsun = $('#glowingsunb');
-    var $hdr = $('#hdrbtn');
-    var $oldpaper = $('#oldpaperbtn');
-    var $pleasant = $('#pleasantb');
-    var $save = $('#savebtn');
-
-
-
-
-function applyFilters() {
+  function applyFilters() {
     var hue = parseInt($('#hue').val());
     var cntrst = parseInt($('#contrast').val());
     var vibr = parseInt($('#vibrance').val());
