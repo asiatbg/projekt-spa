@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
     <script type="text/javascript" src="caman-4.1.2.min.js"></script>
     <link href = "main.css" type="text/css" rel="stylesheet">
-    <script src="main.js"></script>
     
     <title>Edipix</title>
 </head>
@@ -13,12 +13,11 @@
 
     <input type="url" id="imgUrl" placeholder="Paste any link">      
     <button onclick="startLoad()">Załaduj obraz</button>
+    <input type="file" id="imgLoader">
 
     
-    
-    
 <div class="col-lg-6">
-  <canvas id="canvas"></canvas>
+  <canvas id="canvas" width="800" height="600"></canvas>
 </div>
 <div class="col-lg-6">
   <div class="col-lg-6">
@@ -77,5 +76,7 @@
     <button id="savebtn" class="btn btn-success">Save Image</button>
   </nav>
     </div>
+    
+    <script src="main.js"></script>
 </body>
 </html>

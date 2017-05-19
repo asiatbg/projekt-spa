@@ -1,4 +1,4 @@
-var img;
+var img; /*
 
 function setImage(img) {
     this.img = img;
@@ -34,7 +34,7 @@ function startLoad() {
     
     
     var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d'); */
       //img.crossOrigin = ''; 
     /*
       try {
@@ -46,13 +46,44 @@ function startLoad() {
     }
           */
 
-
+/*
       img.onload = function() {
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0, img.width, img.height);
-        }
+        } */
+//    }
+
+//
+
+var canvas = new fabric.Canvas('canvas');
+canvas.setHeight(600);
+canvas.setWidth(800);
+
+document.getElementById('imgLoader').onchange = function handleImage(e) {
+var reader = new FileReader();
+  reader.onload = function (event){
+    var imgObj = new Image();
+    imgObj.src = event.target.result;
+    imgObj.onload = function () {
+      img = new fabric.Image(imgObj);
+      img.set({
+            angle: 0,
+            padding: 10,
+            cornersize:10,
+            height:110,
+            width:110,
+      });
+      canvas.centerObject(img);
+      canvas.add(img);
+      canvas.renderAll();
     }
+  }
+  reader.readAsDataURL(e.target.files[0]);
+}
+
+
+
 
 $(document).ready(function () {
 
