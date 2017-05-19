@@ -1,6 +1,6 @@
-
 var img;
-function setImage(img){
+
+function setImage(img) {
     this.img = img;
 }
 function addImage() {
@@ -11,10 +11,32 @@ function startLoad() {
     var url1 = $("#imgUrl").val();
     setImage(url1);
     console.log(url1);
-    var img = new Image();
+    img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function () {
+
+        // camanjs will replace image or canvas with new canvas in its parent
+        var div = document.createElement ('div');
+        div.appendChild (img);
+
+        Caman(img, function () {
+            // use selected preset, or do whatever you want here
+            this [preset] ();
+
+            this.render (function () {
+                var dataUrl = div.querySelector ('canvas').toDataURL ('image/jpeg', 0.6);
+                });
+            });
+
+        };
+     img.src = addImage();
+    //gdzies brakuje atrybutu src, dlatego blad 404 http://stackoverflow.com/questions/22181354/htmlimageelement-not-found-404
+    
+    
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-      img.crossOrigin = '';
+      //img.crossOrigin = ''; 
+    /*
       try {
           img.src = addImage();
 
@@ -22,7 +44,7 @@ function startLoad() {
     } catch (e) {
         alert("Cross-domain access blocked.");
     }
-          
+          */
 
 
       img.onload = function() {
