@@ -1,62 +1,5 @@
-var img; /*
-
-function setImage(img) {
-    this.img = img;
-}
-function addImage() {
-    return img;
-}
-function startLoad() {
-        
-    var url1 = $("#imgUrl").val();
-    setImage(url1);
-    console.log(url1);
-    img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = function () {
-
-        // camanjs will replace image or canvas with new canvas in its parent
-        var div = document.createElement ('div');
-        div.appendChild (img);
-
-        Caman(img, function () {
-            // use selected preset, or do whatever you want here
-            this [preset] ();
-
-            this.render (function () {
-                var dataUrl = div.querySelector ('canvas').toDataURL ('image/jpeg', 0.6);
-                });
-            });
-
-        };
-     img.src = addImage();
-    //gdzies brakuje atrybutu src, dlatego blad 404 http://stackoverflow.com/questions/22181354/htmlimageelement-not-found-404
-    
-    
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d'); */
-      //img.crossOrigin = ''; 
-    /*
-      try {
-          img.src = addImage();
-
-
-    } catch (e) {
-        alert("Cross-domain access blocked.");
-    }
-          */
-
-/*
-      img.onload = function() {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-        } */
-//    }
-
-//
-
-var canvas = new fabric.Canvas('canvas');
+var img; 
+var canvas = new fabric.StaticCanvas('canvas');
 canvas.setHeight(600);
 canvas.setWidth(800);
 
@@ -67,20 +10,27 @@ var reader = new FileReader();
     imgObj.src = event.target.result;
     imgObj.onload = function () {
       img = new fabric.Image(imgObj);
-      img.set({
-            angle: 0,
-            padding: 10,
-            cornersize:10,
-            height:110,
-            width:110,
-      });
+      if (img.height > canvas.height*2 || img.width > canvas.width*2) {
+           img.set({
+                height: img.height*0.25,
+                width: img.width*0.25,
+            })
+       } else if ((img.height > canvas.height && img.height <= canvas.height*2) || (img.width > canvas.width && img.width <= canvas.width*2)) {
+            img.set({
+                height: img.height*0.5,
+                width: img.width*0.5,
+            })
+                  };
       canvas.centerObject(img);
       canvas.add(img);
       canvas.renderAll();
     }
   }
   reader.readAsDataURL(e.target.files[0]);
+    
+    
 }
+
 
 
 
