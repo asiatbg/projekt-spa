@@ -5,7 +5,7 @@ $('#resetCanvas').on('click', function() {
 var img; 
 
 document.getElementById('imgLoader').onchange = function handleImage(e) {
-<<<<<<< HEAD
+
     $('#div1').append('<canvas id="canvas"> </canvas>');
     var canvas = new fabric.StaticCanvas('canvas');
     canvas.setHeight(600);
@@ -33,33 +33,6 @@ document.getElementById('imgLoader').onchange = function handleImage(e) {
         }
       }
       reader.readAsDataURL(e.target.files[0]);
-
-    
-=======
-var reader = new FileReader();
-  reader.onload = function (event){
-    var imgObj = new Image();
-    imgObj.src = event.target.result;
-    imgObj.onload = function () {
-      img = new fabric.Image(imgObj);
-      if (img.height > canvas.height*2 || img.width > canvas.width*2) {
-           img.set({
-                height: img.height*0.25,
-                width: img.width*0.25,
-            })
-       } else if ((img.height > canvas.height && img.height <= canvas.height*2) || (img.width > canvas.width && img.width <= canvas.width*2)) {
-            img.set({
-                height: img.height*0.5,
-                width: img.width*0.5,
-            })
-                  };
-      canvas.centerObject(img);
-      canvas.add(img);
-      canvas.renderAll();
-    }
-  }
-  reader.readAsDataURL(e.target.files[0]);
->>>>>>> 41bca9dacb83995460ee4bba8fea7ee4f056044b
 }
 
 function update(jscolor) {
