@@ -27,13 +27,12 @@ var reader = new FileReader();
     }
   }
   reader.readAsDataURL(e.target.files[0]);
-    
-    
 }
 
-
-
-
+function update(jscolor) {
+    // 'jscolor' instance can be used as a string
+    document.getElementById('body').style.backgroundColor = '#' + jscolor
+}
 
 $(document).ready(function () {
 
@@ -73,7 +72,7 @@ $(document).ready(function () {
   var $save = $('#savebtn');
 
   /* As soon as slider value changes call applyFilters */
-  $("input[type=range]").change(applyFilters).mousemove(applyFilters);
+  $("input[type=range]").change(applyFilters);
 
 
   function applyFilters() {
