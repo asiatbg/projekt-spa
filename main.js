@@ -1,4 +1,4 @@
-$('#resetCanvas').on('click', function() {
+$('#imgLoader').on('click', function() {
    $('canvas').remove(); 
 });
 
