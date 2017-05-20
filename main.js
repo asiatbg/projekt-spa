@@ -1,33 +1,38 @@
+$('#resetCanvas').on('click', function() {
+   $('canvas').remove(); 
+});
+
 var img; 
-var canvas = new fabric.StaticCanvas('canvas');
-canvas.setHeight(600);
-canvas.setWidth(800);
 
 document.getElementById('imgLoader').onchange = function handleImage(e) {
-var reader = new FileReader();
-  reader.onload = function (event){
-    var imgObj = new Image();
-    imgObj.src = event.target.result;
-    imgObj.onload = function () {
-      img = new fabric.Image(imgObj);
-      if (img.height > canvas.height*2 || img.width > canvas.width*2) {
-           img.set({
-                height: img.height*0.25,
-                width: img.width*0.25,
-            })
-       } else if ((img.height > canvas.height && img.height <= canvas.height*2) || (img.width > canvas.width && img.width <= canvas.width*2)) {
-            img.set({
-                height: img.height*0.5,
-                width: img.width*0.5,
-            })
-                  };
-      canvas.centerObject(img);
-      canvas.add(img);
-      canvas.renderAll();
-    }
-  }
-  reader.readAsDataURL(e.target.files[0]);
-    
+    $('#div1').append('<canvas id="canvas"> </canvas>');
+    var canvas = new fabric.StaticCanvas('canvas');
+    canvas.setHeight(600);
+    canvas.setWidth(800);
+    var reader = new FileReader();
+      reader.onload = function (event){
+        var imgObj = new Image();
+        imgObj.src = event.target.result;
+        imgObj.onload = function () {
+          img = new fabric.Image(imgObj);
+          if (img.height > 590 || img.width > 790) {
+               img.set({
+                    height: img.height*0.25,
+                    width: img.width*0.25,
+                })
+           } else if ((img.height > 590 && img.height <= 590*2) || (img.width > 790 && img.width <= 790*2)) {
+                img.set({
+                    height: img.height*0.5,
+                    width: img.width*0.5,
+                })
+                      };
+          canvas.centerObject(img);
+          canvas.add(img);
+          canvas.renderAll();
+        }
+      }
+      reader.readAsDataURL(e.target.files[0]);
+
     
 }
 
@@ -73,7 +78,7 @@ $(document).ready(function () {
   var $save = $('#savebtn');
 
   /* As soon as slider value changes call applyFilters */
-  $("input[type=range]").change(applyFilters).mousemove(applyFilters);
+  $("input[type=range]").change(applyFilters);
 
 
   function applyFilters() {
