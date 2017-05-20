@@ -5,18 +5,26 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
     <script type="text/javascript" src="caman-4.1.2.min.js"></script>
+    <script src="jscolor.js"></script>
     <link href = "main.css" type="text/css" rel="stylesheet">
     
     <title>Edipix</title>
 </head>
-<body>
+<body id="body">
 
     <input type="file" id="imgLoader">
+<<<<<<< HEAD
 <button id="resetCanvas">Reset</button>
     
 <div id="div1" class="col-lg-6">
   
+=======
+
+<div class="col-lg-6">
+    <canvas id="canvas"></canvas>
+>>>>>>> 41bca9dacb83995460ee4bba8fea7ee4f056044b
 </div>
+        
 <div class="col-lg-6">
   <div class="col-lg-6">
     <label for="hue">Hue</label>
@@ -30,6 +38,9 @@
     <label for="sepia">Sepia</label>
     <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
   </div>
+
+    <p>Zmień kolor tła:
+<input class="jscolor" onchange="update(this.jscolor)" value="1b2429">
 
     <nav class="filters">
         <button id="resetbtn" class="btn btn-success">Reset Photo</button>
