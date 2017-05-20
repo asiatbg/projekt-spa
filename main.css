@@ -43,13 +43,15 @@ body {
     }
 
 .btn:hover {
-    background: white;
+    background: #ffffff;
+    color: #ffffff;
     background-color: rgba(0,0,0,.15); /*set opacity to 15% */
     text-decoration: none;
     }
 
 .btn:active {
-    background: white;
+    background: #ffffff;
+    color: #ffffff;
     background-color: rgba(0,0,0,.15); /*set opacity to 15% */
     text-decoration: none;
     }
@@ -57,7 +59,8 @@ body {
 
 .btn:focus {
     outline: 0 !important;
-    background: white;
+    color: #ffffff;
+    background: #ffffff;
     background-color: rgba(0,0,0,.15); /*set opacity to 15% */
 }
 
