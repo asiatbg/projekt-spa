@@ -6,20 +6,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
     <script type="text/javascript" src="caman-4.1.2.min.js"></script>
     <script src="jscolor.js"></script>
+    <link href = "http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" type="text/css" rel="stylesheet">
     <link href = "main.css" type="text/css" rel="stylesheet">
     
     <title>Edipix</title>
 </head>
 <body id="body">
+    
 
-    <input type="file" id="imgLoader">
+    <label for="imgLoader" >
+        <img src="./icons/noniechcibedzie.svg" height="40" width="40" class="invert" title="Wybierz plik"/>
+    </label>
 
+    <input id="imgLoader" type="file"/><br>
 
-<div id="div1" class="col-lg-6">
-
+<div id="div1" class="col-lg-9"> 
+    
 </div>
+
         
-<div class="col-lg-6">
+<div class="col-lg-3">
   <div class="col-lg-6">
     <label for="hue">Hue</label>
     <input id="hue" name="hue" type="range" min="0" max="300" value="0">
@@ -34,7 +40,7 @@
   </div>
 
     <p>Zmień kolor tła:
-<input class="jscolor" onchange="update(this.jscolor)" value="1b2429">
+<input id="palette" class="jscolor" onchange="update(this.jscolor)" value="1b2429">
 
     <nav class="filters">
         <button id="resetbtn" class="btn btn-success">Reset Photo</button>
@@ -76,10 +82,13 @@
     <button id="hdrbtn" class="btn btn-warning">HDR Effect</button>
     <button id="oldpaperbtn" class="btn btn-warning">Old Paper</button>
     <button id="pleasantbtn" class="btn btn-warning">Pleasant</button>
-    <button id="savebtn" class="btn btn-success">Save Image</button>
+    <button id="savebtn" class="btn btn-success"><img src="./icons/download.svg" height="30" width="30" class="invert" title="Zapisz obraz"/></button>
   </nav>
     </div>
     
+    
+    
     <script src="main.js"></script>
+    
 </body>
 </html>

@@ -16,23 +16,23 @@ document.getElementById('imgLoader').onchange = function handleImage(e) {
         imgObj.src = event.target.result;
         imgObj.onload = function () {
           img = new fabric.Image(imgObj);
-          if (img.height > 590 || img.width > 790) {
-               img.set({
+            if (img.height > canvas.height*2 || img.width > canvas.width*2) {
+                img.set({
                     height: img.height*0.25,
                     width: img.width*0.25,
                 })
-           } else if ((img.height > 590 && img.height <= 590*2) || (img.width > 790 && img.width <= 790*2)) {
+            } else if ((img.height > canvas.height && img.height <= canvas.height*2) || (img.width > canvas.width && img.width <= canvas.width*2)) {
                 img.set({
                     height: img.height*0.5,
                     width: img.width*0.5,
                 })
-                      };
-          canvas.centerObject(img);
-          canvas.add(img);
-          canvas.renderAll();
+            };
+            canvas.centerObject(img);
+            canvas.add(img);
+            canvas.renderAll();
         }
-      }
-      reader.readAsDataURL(e.target.files[0]);
+    }
+    reader.readAsDataURL(e.target.files[0]);
 }
 
 function update(jscolor) {
