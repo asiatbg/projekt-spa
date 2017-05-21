@@ -7,19 +7,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
     <script type="text/javascript" src="caman-4.1.2.min.js"></script>
     <script src="jscolor.js"></script>
-    <link href = "http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <link href = "main.css" type="text/css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" user-scalable=no>
     
     <title>Edipix</title>
 </head>
 <body id="body">
-    
+<div class="container">   
+    <div class="row">
+        
     <label for="imgLoader" >
         <img src="./icons/noniechcibedzie.svg" height="40" width="40" class="invert" title="Wybierz plik"/>
     </label>
-    
     <input id="imgLoader" type="file"/><br>
     
+       
     <div id="div1" class="col-lg-9"> 
 
     </div>
@@ -80,8 +84,9 @@
             <button id="pleasantbtn" class="btn">Pleasant</button>
             <button id="savebtn" class="btn"><img src="./icons/download.svg" height="30" width="30" class="invert" title="Zapisz obraz"/></button>
         </nav>
+        </div>
+    </div>     
     </div>
-    
     <script src="main.js"></script>
     
 </body>
