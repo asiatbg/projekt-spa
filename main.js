@@ -1,4 +1,4 @@
-$('#imgLoader').on('click', function() {
+$('#imgLoader').on('click', function () {
     $('canvas').remove();
 });
 
@@ -19,44 +19,44 @@ document.getElementById('imgLoader').onchange = function handleImage(e) {
             if (img.height > canvas.height * 2 || img.width > canvas.width * 2) {
                 img.set({
                     height: img.height * 0.25,
-                    width: img.width * 0.25,
-                }) } else if ((img.height > canvas.height && img.height <= canvas.height * 2) || (img.width > canvas.width && img.width <= canvas.width * 2)) {
+                    width: img.width * 0.25
+                });
+            } else if ((img.height > canvas.height && img.height <= canvas.height * 2) || (img.width > canvas.width && img.width <= canvas.width * 2)) {
                 img.set({
                     height: img.height * 0.5,
                     width: img.width * 0.5
                 })
-            } ;
+            }
             canvas.centerObject(img);
             canvas.add(img);
             canvas.renderAll();
-        }
-    }
+        };
+    };
     reader.readAsDataURL(e.target.files[0]);
-}
+};
 
 function populateStorage() {
-  localStorage.setItem('palette', document.getElementById('palette').value);
-  setStyles();
+    localStorage.setItem('palette', document.getElementById('palette').value);
+    setStyles();
 }
 function setStyles() {
-  var currentColor = localStorage.getItem('palette');
-  document.getElementById('palette').value = currentColor;
-
+    var currentColor = localStorage.getItem('palette');
+    document.getElementById('palette').value = currentColor;
 }
 
 
 function hexToR(h) {
-    return parseInt((cutHex(h)).substring(0,2),16);
+    return parseInt((cutHex(h)).substring(0, 2), 16);
 }
 function hexToG(h) {
-    return parseInt((cutHex(h)).substring(2,4),16);
+    return parseInt((cutHex(h)).substring(2, 4), 16);
 }
 function hexToB(h) {
-    return parseInt((cutHex(h)).substring(4,6),16);
+    return parseInt((cutHex(h)).substring(4, 6), 16);
 }
 function cutHex(h) {
-    return (h.charAt(0)=="#") ? h.substring(1,7):h;
-                   }
+    return (h.charAt(0) == "#") ? h.substring(1, 7) : h;
+}
 function update(jscolor) {
     // 'jscolor' instance can be used as a string
     document.getElementById('body').style.backgroundColor = '#' + jscolor;
@@ -67,14 +67,13 @@ function update(jscolor) {
 
     document.getElementById('rgb').innerHTML =
         hexToR(picker) + ", " + hexToG(picker) + ", " + hexToB(picker);
-
-    
 }
 
 $(document).ready(function () {
 
     var $reset = $('#resetbtn');
     var $brightness = $('#brightnessbtn');
+    var $crop = $('#cropbtn');
     var $noise = $('#noisebtn');
     var $sepia = $('#sepiabtn');
     var $contrast = $('#contrastbtn');
@@ -139,7 +138,7 @@ $(document).ready(function () {
         this.hazyDays();
         this.render();
       });
-
+    
       $reset.on('click', function(e) {
         $('input[type=range]').val(0);
         Caman('#canvas', img, function() {
@@ -330,4 +329,5 @@ $(document).ready(function () {
           });
         });
       });
-    });
+  });
+

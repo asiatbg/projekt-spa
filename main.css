@@ -3,13 +3,13 @@ body {
     color: #ffffff;
     background-color: #1b2429; 
     text-align: left;
-    /*left: 25%; */
+    height: 100%;
 }
 
 .container {
  padding-top: 15px;
 }
-#imgLoader  { /*get rid of that ugly upload button ygh*/
+#imgLoader  { /*get rid of that ugly upload button*/
     display: none;
 }
 
@@ -177,7 +177,7 @@ input[type=range]:focus::-ms-fill-upper {
     
 }
 
-#palette:focus, #palette.focus  { /*shadow effect oh yeah */
+#palette:focus, #palette.focus  { /*shadow effect oh yeah*/
     border: solid 1px #707070;
     box-shadow: 0 0 5px 1px #969696;
 }
@@ -185,5 +185,31 @@ input[type=range]:focus::-ms-fill-upper {
 p {
     padding-left: 10px;
     padding-top: 100px;
+    text-shadow: 0 0 3px #D9DBD0;
+}
+
+#converter {
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.col-lg-3 {
+    border-radius: 15px 0 0 15px;
+    background-color: black;
+    background-color: rgba(0,0,0,.10); /*set opacity to 10% */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.navbar {
+    background-color: black;
+    background-color: rgba(0,0,0,.10); /*set opacity to 10% */
+}
+
+h1 {
+    text-align: center;
+    background-color: rgba(0,0,0,.30); /*set opacity to 30% */
+    font-family: 'Amatic SC', serif;
     text-shadow: 0 0 3px #D9DBD0;
 }
