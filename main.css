@@ -2,8 +2,12 @@ body {
     font-family: Arial;
     color: #ffffff;
     background-color: #1b2429; 
-    text-align: center;
-    left: 25%;
+    text-align: left;
+    /*left: 25%; */
+}
+
+.container {
+ padding-top: 15px;
 }
 #imgLoader  { /*get rid of that ugly upload button ygh*/
     display: none;
@@ -176,4 +180,10 @@ input[type=range]:focus::-ms-fill-upper {
 #palette:focus, #palette.focus  { /*shadow effect oh yeah */
     border: solid 1px #707070;
     box-shadow: 0 0 5px 1px #969696;
+}
+
+p {
+    padding-left: 10px;
+    padding-top: 100px;
+    text-shadow: 0 0 3px #D9DBD0;
 }
