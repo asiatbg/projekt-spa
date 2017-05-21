@@ -6,7 +6,7 @@ var img;
 
 document.getElementById('imgLoader').onchange = function handleImage(e) {
 
-    $('#div1').append('<canvas id="canvas"> </canvas>');
+    $('#canvasDiv').append('<canvas id="canvas"> </canvas>');
     var canvas = new fabric.StaticCanvas('canvas');
     canvas.setHeight(600);
     canvas.setWidth(800);
@@ -34,9 +34,41 @@ document.getElementById('imgLoader').onchange = function handleImage(e) {
     reader.readAsDataURL(e.target.files[0]);
 }
 
+function populateStorage() {
+  localStorage.setItem('palette', document.getElementById('palette').value);
+  setStyles();
+}
+function setStyles() {
+  var currentColor = localStorage.getItem('palette');
+  document.getElementById('palette').value = currentColor;
+
+}
+
+
+function hexToR(h) {
+    return parseInt((cutHex(h)).substring(0,2),16);
+}
+function hexToG(h) {
+    return parseInt((cutHex(h)).substring(2,4),16);
+}
+function hexToB(h) {
+    return parseInt((cutHex(h)).substring(4,6),16);
+}
+function cutHex(h) {
+    return (h.charAt(0)=="#") ? h.substring(1,7):h;
+                   }
 function update(jscolor) {
     // 'jscolor' instance can be used as a string
-    document.getElementById('body').style.backgroundColor = '#' + jscolor
+    document.getElementById('body').style.backgroundColor = '#' + jscolor;
+    populateStorage();
+    var picker = localStorage.getItem("palette");
+    document.getElementById('hex-str').innerHTML = "#" + picker;
+    document.getElementById('rgb-str').innerHTML = hexToR(picker) + "" + hexToG(picker) + "" + hexToB(picker);
+
+    document.getElementById('rgb').innerHTML =
+        hexToR(picker) + ", " + hexToG(picker) + ", " + hexToB(picker);
+
+    
 }
 
 $(document).ready(function () {
