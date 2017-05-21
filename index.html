@@ -9,21 +9,15 @@
     <script src="jscolor.js"></script>
     <link href = "http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" type="text/css" rel="stylesheet">
     <link href = "main.css" type="text/css" rel="stylesheet">
-    
     <title>Edipix</title>
 </head>
 <body id="body">
-    
     <label for="imgLoader" >
         <img src="./icons/noniechcibedzie.svg" height="40" width="40" class="invert" title="Wybierz plik"/>
     </label>
-    
     <input id="imgLoader" type="file"/><br>
-    
-    <div id="div1" class="col-lg-9"> 
-
+    <div id="canvasDiv" class="col-lg-9"> 
     </div>
-
     <div class="col-lg-3">
         <div class="col-lg-6">
             <label for="hue">Hue</label>
@@ -37,10 +31,13 @@
             <label for="sepia">Sepia</label>
             <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
         </div>
-
-        <p>Zmień kolor tła:
-            <input id="palette" class="jscolor" onchange="update(this.jscolor)" value="1b2429">
-
+        <p>Change backgroud color:</p>
+            <input id="palette" class="jscolor {onFineChange:'update(this)'}" value="1b2429">
+            <div>
+                HEX String = <span id="hex-str"></span><br />
+                RGB String = <span id="rgb-str"></span><br />
+                R, G, B = <span id="rgb"></span>
+            </div>
         <nav class="filters">
             <button id="resetbtn" class="btn">Reset Photo</button>
             <button id="brightnessbtn" class="btn">Brightness</button>
@@ -81,8 +78,6 @@
             <button id="savebtn" class="btn"><img src="./icons/download.svg" height="30" width="30" class="invert" title="Zapisz obraz"/></button>
         </nav>
     </div>
-    
     <script src="main.js"></script>
-    
 </body>
 </html>
