@@ -213,3 +213,13 @@ h1 {
     font-family: 'Amatic SC', serif;
     text-shadow: 0 0 3px #D9DBD0;
 }
+#place {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    cursor: move;
+    opacity: 0.5;
+}
+#hideDiv {
+    visibility: hidden;
+}

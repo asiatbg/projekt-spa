@@ -13,9 +13,11 @@ document.getElementById('imgLoader').onchange = function handleImage(e) {
     var reader = new FileReader();
     reader.onload = function (event) {
         var imgObj = new Image();
+        imgObj.crossOrigin = "";
         imgObj.src = event.target.result;
         imgObj.onload = function () {
-            img = new fabric.Image(imgObj);
+            var img = new fabric.Image(imgObj);
+            
             if (img.height > canvas.height * 2 || img.width > canvas.width * 2) {
                 img.set({
                     height: img.height * 0.25,
@@ -119,7 +121,8 @@ $(document).ready(function () {
 
         Caman('#canvas', img, function() {
           this.revert(false);
-          this.hue(hue).contrast(cntrst).vibrance(vibr).sepia(sep).render();
+            img = this.hue(hue).contrast(cntrst).vibrance(vibr).sepia(sep).render();
+            
         });
       }
 
