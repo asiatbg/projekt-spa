@@ -8,27 +8,32 @@ document.getElementById('imgLoader').onchange = function handleImage(e) {
 
     $('#canvasDiv').append('<canvas id="canvas"> </canvas>');
     var canvas = new fabric.StaticCanvas('canvas');
-    canvas.setHeight(600);
-    canvas.setWidth(800);
+    //canvas.setHeight(600);
+    //canvas.setWidth(800);
     var reader = new FileReader();
     reader.onload = function (event) {
         var imgObj = new Image();
+        imgObj.style.maxHeight = 600;
+        imgObj.style.maxWidth = 800;
         imgObj.crossOrigin = "Anonymous";
         imgObj.src = event.target.result;
         imgObj.onload = function () {
             var img = new fabric.Image(imgObj);
-            
-            if (img.height > canvas.height * 2 || img.width > canvas.width * 2) {
-                img.set({
-                    height: img.height * 0.25,
-                    width: img.width * 0.25
-                });
-            } else if ((img.height > canvas.height && img.height <= canvas.height * 2) || (img.width > canvas.width && img.width <= canvas.width * 2)) {
-                img.set({
-                    height: img.height * 0.5,
-                    width: img.width * 0.5
-                })
+            if (imgObj.height > 600 || imgObj.width > 800){
+                var percentHeight = 600/imgObj.height;
+                var percentWidth = 800/imgObj.width;
+                if (percentHeight < percentWidth){
+                    canvas.setHeight(imgObj.height*percentHeight);
+                    canvas.setWidth(imgObj.width*percentHeight);
+                } else {
+                    canvas.setHeight(imgObj.height*percentWidth);
+                    canvas.setWidth(imgObj.width*percentWidth);
+                }
+            } else{
+                canvas.setHeight(imgObj.height);
+                canvas.setWidth(imgObj.width);
             }
+            
             canvas.centerObject(img);
             canvas.add(img);
             canvas.renderAll();
