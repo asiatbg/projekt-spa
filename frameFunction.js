@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 var context = canvas.getContext('2d');
                 var imageFrame = event.target.src;
                 var elem = document.createElement("img");
-                var img = 
 
                 elem.crossOrigin = "Anonymous";
                 elem.src = imageFrame;
