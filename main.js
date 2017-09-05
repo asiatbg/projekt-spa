@@ -13,7 +13,7 @@ document.getElementById('imgLoader').onchange = function handleImage(e) {
     var reader = new FileReader();
     reader.onload = function (event) {
         var imgObj = new Image();
-        imgObj.crossOrigin = "";
+        imgObj.crossOrigin = "Anonymous";
         imgObj.src = event.target.result;
         imgObj.onload = function () {
             var img = new fabric.Image(imgObj);
@@ -66,12 +66,23 @@ function update(jscolor) {
     var picker = localStorage.getItem("palette");
     document.getElementById('hex-str').innerHTML = "#" + picker;
     document.getElementById('rgb-str').innerHTML = hexToR(picker) + "" + hexToG(picker) + "" + hexToB(picker);
-
     document.getElementById('rgb').innerHTML =
         hexToR(picker) + ", " + hexToG(picker) + ", " + hexToB(picker);
 }
 
 $(document).ready(function () {
+    var backgroundColor = document.getElementById('palette');
+    var picker = localStorage.getItem("palette");
+    if (localStorage.getItem("palette") != "1b2429"){
+        backgroundColor.value = picker;
+        document.getElementById('body').style.background = '#' + picker;
+        document.getElementById('hex-str').innerHTML = "#" + picker;
+        document.getElementById('rgb-str').innerHTML = hexToR(picker) + "" + hexToG(picker) + "" + hexToB(picker);
+        document.getElementById('rgb').innerHTML =
+        hexToR(picker) + ", " + hexToG(picker) + ", " + hexToB(picker);
+    } else {
+        backgroundColor.value = "1b2429";
+    }
 
     var $reset = $('#resetbtn');
     var $brightness = $('#brightnessbtn');
@@ -107,6 +118,7 @@ $(document).ready(function () {
     var $oldpaper = $('#oldpaperbtn');
     var $pleasant = $('#pleasantbtn');
 
+//    var $save = $('#savebtn');
     var $save = $('#savebtn');
 
   /* As soon as slider value changes call applyFilters */
@@ -323,11 +335,10 @@ $(document).ready(function () {
         });
       });
 
-      /* You can also save it as a jpg image, extension need to be added later after saving image. */
-
-      $save.on('click', function(e) {
+        $save.on('click', function(e) {
+        
         Caman('#canvas', img, function() {
-          this.render(function() {
+            this.render(function() {
             this.save('png');
           });
         });
