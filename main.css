@@ -213,6 +213,7 @@ h1 {
     font-family: 'Amatic SC', serif;
     text-shadow: 0 0 3px #D9DBD0;
 }
+
 #place {
     position: absolute;
     top: 50px;
@@ -220,6 +221,16 @@ h1 {
     cursor: move;
     opacity: 0.5;
 }
+
 #hideDiv {
     visibility: hidden;
+    border-radius: 15px 15px 15px 15px;
+    background-color: black;
+    background-color: rgba(0,0,0,.10); /*set opacity to 10% */
+    
+}
+
+#divFrames {
+    display: inline-block;
+    margin: 5px;
 }

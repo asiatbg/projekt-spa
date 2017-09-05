@@ -86,7 +86,6 @@ $(document).ready(function () {
 
     var $reset = $('#resetbtn');
     var $brightness = $('#brightnessbtn');
-    var $crop = $('#cropbtn');
     var $noise = $('#noisebtn');
     var $sepia = $('#sepiabtn');
     var $contrast = $('#contrastbtn');
@@ -336,12 +335,12 @@ $(document).ready(function () {
       });
 
         $save.on('click', function(e) {
-        
-        Caman('#canvas', img, function() {
+        localStorage.setItem( "savedImageData", document.getElementById('canvas').toDataURL("image/png") );
+          var imageResult = localStorage.getItem("savedImageData");
+        Caman('#canvas', imageResult, function() {
             this.render(function() {
             this.save('png');
           });
         });
       });
   });
-

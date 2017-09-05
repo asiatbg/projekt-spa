@@ -35,7 +35,6 @@
                 <input id="imgLoader" type="file"/><br>
             </div>
             <div id="canvasDiv" class="col-lg-9"> 
-            
             </div>
             <div class="col-lg-3">
                 <div class="col-lg-6">
@@ -110,17 +109,19 @@
                     <button id="savebtn" class="btn"><img src="./icons/download.svg" height="30" width="30" class="invert" title="Save image"/></button>
                 </nav>
             </div>
-        </div>      
-    </div>
-    <div>
-        <button id="show">Pokaż ramki</button>
-        <button id="clear">Schowaj ramki</button>
-        <button id="draw">Draw</button>
-        <div id="hideDiv" ng-controller="myCtrl">     
-            <div id="divFrames" ng-repeat="frame in frames">
-                <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="150px" width="200px">
-            </div>
-            <div id="place"></div>
+        </div>     
+        <div>
+            <nav>
+                <button id="show" class="btn">Choose frame</button>
+                <button id="clear" class="btn">Hide frames</button>
+                <button id="draw" class="btn">Draw</button>
+                <div id="hideDiv" ng-controller="myCtrl">     
+                    <div id="divFrames" ng-repeat="frame in frames">
+                        <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="100px" width="150px">
+                    </div>
+                    <div id="place"></div>
+                </div>
+            </nav>
         </div>
     </div>
     <script src="frameFunction.js"></script>
